@@ -193,7 +193,7 @@ public class Stack2<T> extends StackSecondary<T> {
     public final int length() {
 
         assert this.conventionHolds();
-        return this.length;
+        return this.length();
     }
 
     @Override
@@ -247,29 +247,6 @@ public class Stack2<T> extends StackSecondary<T> {
             throw new UnsupportedOperationException("remove operation not supported");
         }
 
-    }
-
-    /*
-     * Other methods (overridden for performance reasons) ---------------------
-     */
-
-    @Override
-    public final T top() {
-        assert this.length() > 0 : "Violation of: this /= <>";
-
-        assert this.conventionHolds();
-        return this.top.data;
-    }
-
-    @Override
-    public final T replaceTop(T x) {
-        assert this.length() > 0 : "Violation of: this /= <>";
-
-        T data = this.top.data;
-        this.top.data = x;
-        assert this.conventionHolds();
-
-        return data;
     }
 
 }
